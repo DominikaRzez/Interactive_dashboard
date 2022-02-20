@@ -3,7 +3,7 @@ function init(){
     // Selecting the dropdown element
     var dropdown = d3.select("#selDataset");
     // Using d3 library to read samples file
-    d3.json("samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
         // Craeting variable of sample ID's
         var sampleID = data.names;
         //Looping through list of samples and populating the dropdown with subject ID's
@@ -22,7 +22,7 @@ function init(){
 // Defining upateDemographics funtcion
 function updateDemographics(sample) {
     // Using d3 to create variable holding demographics details
-    d3.json("samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
         var metadata = data.metadata;
         var metaID = metadata.filter(sampleObject => sampleObject.id == sample)
         var result = metaID[0]
@@ -38,7 +38,7 @@ function updateDemographics(sample) {
 // Defining updatePlots function
 function updatePlots(sample) {
     // Using d3 to create variable holding sample details
-    d3.json("samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
         // Getting data for barchart and bubble chart
        var samples = data.samples;
        var ID = samples.filter(sampleObject => sampleObject.id == sample);
